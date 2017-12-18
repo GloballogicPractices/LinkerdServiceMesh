@@ -1,0 +1,23 @@
+admin:
+  port: 9991
+
+namers:
+ - kind: io.l5d.consul
+   host: consul.service.consul
+   port: 8500
+   useHealthCheck: true
+
+storage:
+   kind: io.l5d.consul
+   host: consul.service.consul
+   port: 8500
+   pathPrefix: /namerd/dtabs
+   datacenter: jcm
+
+interfaces:
+- kind: io.l5d.thriftNameInterpreter
+  ip: 0.0.0.0
+  port: 5100
+- kind: io.l5d.httpController
+  ip: 0.0.0.0
+  port: 5180

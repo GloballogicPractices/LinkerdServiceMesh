@@ -1,0 +1,5 @@
+/s/svc1 => /#/io.l5d.consul/dc/gw;
+/s/svc2 => /#/io.l5d.consul/dc/gw;
+/s/*/svc1 => /#/io.l5d.consul/dc/svc2;
+/s/*/svc2 => /#/io.l5d.consul/dc/svc2;
+/http/*/* => /s

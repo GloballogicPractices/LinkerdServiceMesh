@@ -1,0 +1,27 @@
+admin:
+  port: 9991
+  ip: 0.0.0.0
+
+routers:
+ - protocol: http
+   interpreter:
+     kind: io.l5d.namerd
+     dst: /$/inet/namerd.service.consul/5100
+     namespace: default
+   identifier:
+     kind: io.l5d.methodAndHost
+     httpUriInDst: true
+   dstPrefix: /http
+   servers:
+   - port: 4140
+     ip: 0.0.0.0
+
+telemetry:
+ - kind: io.l5d.prometheus
+
+telemetry:
+ - kind: io.l5d.zipkin
+   host: localhost
+    port: 9410
+      sampleRate: 1.0
+
